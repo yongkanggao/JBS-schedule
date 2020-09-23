@@ -191,9 +191,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2020-09-18 19:27:42</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:11.758926</p>
-<p class='attribute'><strong>Status:</strong> Pass 6</p>
+<p class='attribute'><strong>Start Time:</strong> 2020-09-23 11:15:58</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:13.848952</p>
+<p class='attribute'><strong>Status:</strong> Pass 9</p>
 
 <p class='description'>Test Description</p>
 </div>
@@ -224,7 +224,7 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_000</td>
+    <td>paramunittest.TestOrderCmp_xls_000</td>
     <td>查询下单时间当天是否多生成了系统订单</td>
     <td>1</td>
     <td>1</td>
@@ -251,16 +251,12 @@ function showOutput(id, name) {
 pt1.1: 
 查询下单时间当天是否多生成了系统订单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:42,221] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:42,222] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：没有生成重复的数据
 
-()
-[2020-09-18 19:27:45,634] - config_log.py] - INFO: 查询下单时间当天是否多生成了系统订单
-测试结束
-输出log
-完结!
+
+比对结束
 
 
 
@@ -273,7 +269,7 @@ pt1.1:
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_001</td>
+    <td>paramunittest.TestOrderCmp_xls_001</td>
     <td>查询下单时间前一天是否多生成了系统订单</td>
     <td>1</td>
     <td>1</td>
@@ -300,16 +296,12 @@ pt1.1:
 pt2.1: 
 查询下单时间前一天是否多生成了系统订单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:45,646] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:45,646] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：没有生成重复的数据
 
-(('126900325394', Decimal('1119.0000'), '119.00', datetime.datetime(2020, 9, 17, 23, 6, 31)),)
-[2020-09-18 19:27:49,112] - config_log.py] - INFO: 查询下单时间前一天是否多生成了系统订单
-测试结束
-输出log
-完结!
+
+比对结束
 
 
 
@@ -322,7 +314,7 @@ pt2.1:
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_002</td>
+    <td>paramunittest.TestOrderCmp_xls_002</td>
     <td>查询下单时间前七天到当天是否多生成了系统订单</td>
     <td>1</td>
     <td>1</td>
@@ -349,16 +341,31 @@ pt2.1:
 pt3.1: 
 查询下单时间前七天到当天是否多生成了系统订单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:49,114] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:49,115] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：有重复数据生成
 
-(('126900325394', Decimal('1119.0000'), '119.00', datetime.datetime(2020, 9, 17, 23, 6, 31)),)
-[2020-09-18 19:27:52,544] - config_log.py] - INFO: 查询下单时间前七天到当天是否多生成了系统订单
-测试结束
-输出log
-完结!
+原始订单为：127169977783
+对应系统订单为:JY2009211307998216622989312,JY2009211307999052577136640
+
+原始订单为：127170674303
+对应系统订单为:JY2009211307999219992780800,JY2009211307998208934830080
+
+原始订单为：127170497023
+对应系统订单为:JY2009211307998215964483584,JY2009211308001822130593792
+
+原始订单为：127054973622
+对应系统订单为:JY2009211307991902412890112,JY2009211307997636089372672
+
+原始订单为：127056490431
+对应系统订单为:JY2009211307991901917962240,JY2009211307997915736203264
+
+原始订单为：126900325394
+对应系统订单为:JY2009171306611380285722624,JY2009181306729663538253824
+
+
+
+比对结束
 
 
 
@@ -371,7 +378,7 @@ pt3.1:
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_003</td>
+    <td>paramunittest.TestOrderCmp_xls_003</td>
     <td>查询下单时间当天是否多生成了销售出库单</td>
     <td>1</td>
     <td>1</td>
@@ -398,16 +405,12 @@ pt3.1:
 pt4.1: 
 查询下单时间当天是否多生成了销售出库单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:52,546] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:52,546] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：没有生成重复的数据
 
-(('CK20200918000854', '126953257048', 'JY2009181306882866410016768', 1, 2), ('CK20200918000862', '126944260506', 'JY2009181306883216357576704', 1, 2))
-[2020-09-18 19:27:53,711] - config_log.py] - INFO: 查询下单时间当天是否多生成了销售出库单
-测试结束
-输出log
-完结!
+
+比对结束
 
 
 
@@ -420,7 +423,7 @@ pt4.1:
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_004</td>
+    <td>paramunittest.TestOrderCmp_xls_004</td>
     <td>查询下单时间前一天是否多生成了销售出库单</td>
     <td>1</td>
     <td>1</td>
@@ -447,16 +450,12 @@ pt4.1:
 pt5.1: 
 查询下单时间前一天是否多生成了销售出库单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:53,723] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:53,723] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：没有生成重复的数据
 
-(('CK2009171306483986128293888', '1253047035482933468', 'JY2009171306483459315322880', 1, 2),)
-[2020-09-18 19:27:53,831] - config_log.py] - INFO: 查询下单时间前一天是否多生成了销售出库单
-测试结束
-输出log
-完结!
+
+比对结束
 
 
 
@@ -469,7 +468,7 @@ pt5.1:
 </tr>
 
 <tr class='passClass'>
-    <td>paramunittest.TestDelData_xls_005</td>
+    <td>paramunittest.TestOrderCmp_xls_005</td>
     <td>查询下单时间前七天到当天是否多生成了销售出库单</td>
     <td>1</td>
     <td>1</td>
@@ -496,16 +495,186 @@ pt5.1:
 pt6.1: 
 查询下单时间前七天到当天是否多生成了销售出库单:
 
-测试开始前准备
+比对开始：
 
-[2020-09-18 19:27:53,834] - config_log.py] - INFO: 连接数据库成功
-[2020-09-18 19:27:53,834] - config_log.py] - INFO: 成功创建数据库游标
+比对结果：有重复数据生成
 
-(('CK20200918000854', '126953257048', 'JY2009181306882866410016768', 1, 2), ('CK20200918000862', '126944260506', 'JY2009181306883216357576704', 1, 2), ('CK2009171306483986128293888', '1253047035482933468', 'JY2009171306483459315322880', 1, 2))
-[2020-09-18 19:27:53,972] - config_log.py] - INFO: 查询下单时间前七天到当天是否多生成了销售出库单
-测试结束
-输出log
-完结!
+原始订单为：127168759094
+对应系统订单为:JY2009211307998204904103936
+
+原始订单为：127162856729
+对应系统订单为:JY2009211307998213158494209
+
+原始订单为：127172437210
+对应系统订单为:JY2009211307998213158494208
+
+原始订单为：1259463853218660836
+对应系统订单为:JY2009211308006537807552512
+
+原始订单为：127119982878
+对应系统订单为:JY2009211307991997736837120
+
+原始订单为：127121645565
+对应系统订单为:JY2009211307992011653537792
+
+
+
+比对结束
+
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.TestOrderCmp_xls_006</td>
+    <td>查询下单当天原始订单没有同步到系统订单数据</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+    <td colspan='7' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 
+查询下单当天原始订单没有同步到系统订单数据:
+
+比对开始：
+
+比对结果：系统订单数据有遗漏
+
+原始订单为：1262790576197280023
+原始订单为：1263656269872055221
+
+
+比对结束
+
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.TestOrderCmp_xls_007</td>
+    <td>查询下单前一天原始订单没有同步到系统订单数据</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+    <td colspan='7' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 
+查询下单前一天原始订单没有同步到系统订单数据:
+
+比对开始：
+
+比对结果：系统订单数据有遗漏
+
+原始订单为：127197687743
+原始订单为：127199804573
+原始订单为：127215195487
+
+
+比对结束
+
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.TestOrderCmp_xls_008</td>
+    <td>查询下单前七天到当天原始订单没有同步到系统订单数据</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+    <td colspan='7' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 
+查询下单前七天到当天原始订单没有同步到系统订单数据:
+
+比对开始：
+
+比对结果：系统订单数据有遗漏
+
+原始订单为：127197687743
+原始订单为：127199804573
+原始订单为：127159859379
+原始订单为：127215195487
+原始订单为：127067053628
+原始订单为：127067326109
+原始订单为：127146805725
+原始订单为：127159004496
+原始订单为：1250488478542119174
+原始订单为：127161989695
+原始订单为：126901688988
+原始订单为：127144830068
+
+
+比对结束
 
 
 
@@ -519,8 +688,8 @@ pt6.1:
 
 <tr id='total_row'>
     <td colspan='2'>Total</td>
-    <td>6</td>
-    <td>6</td>
+    <td>9</td>
+    <td>9</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>

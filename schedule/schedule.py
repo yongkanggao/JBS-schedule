@@ -14,9 +14,9 @@ logger = Log()
 Order_xls = ReadExcel().get_xls('order.xlsx', 'Order')
 
 @paramunittest.parametrized(*Order_xls)
-class TestDelData_xls(unittest.TestCase):
+class TestOrderCmp_xls(unittest.TestCase):
     """
-    删除数据
+    订单转换比对
     """
     def setParameters(self,case_name,sql):
         """
@@ -34,18 +34,34 @@ class TestDelData_xls(unittest.TestCase):
         """
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n")
+        print("\n" + self.case_name + ":\n\n比对开始：\n")
 
     def tearDown(self):
-        print("测试结束\n输出log\n完结!\n\n")
+        print("\n\n比对结束\n\n")
 
     def test_checkResult(self):
         db = get_mysql.GetMySql()
         db.connect()
-        db.select(self.sql)
-        print()
-        print(db.select(self.sql))
-        logger.info(str(self.case_name))
+        result = db.select(self.sql)
+        # logger.info(str(self.case_name))
+        # self.assertEqual(result,())
+        # print(result)
+        if self.case_name.endswith("同步到系统订单数据"):
+            data = set(str(result[1])[2:-3].split(',')) - set(str(result[0])[2:-3].split(','))
+            if data == {}:
+                print("比对结果：系统订单数据没有遗漏")
+            else:
+                print("比对结果：系统订单数据有遗漏\n")
+                for k in range(len(data)):
+                    print("原始订单为：" + tuple(data)[k])
+        else:
+            if result == ():
+                print("比对结果：没有生成重复的数据")
+            else:
+                print("比对结果：有重复数据生成\n")
+                for k in range(len(result)):
+                    print("原始订单为："+ result[k][0])
+                    print("对应系统订单为:" + result[k][1] + "\n")
 
 if __name__ == '__main__':
     unittest.main()

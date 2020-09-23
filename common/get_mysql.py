@@ -26,13 +26,13 @@ class GetMySql(object):
                 database=self.database,
                 charset='utf8'
             )
-            self.log.info('连接数据库成功')
+            # self.log.info('连接数据库成功')
         except Exception as error:
             self.log.error('连接数据库失败！！！！')
             self.log.error(error)
         else:
             self.cursor = self.db.cursor()
-            self.log.info('成功创建数据库游标')
+            # self.log.info('成功创建数据库游标')
 
     def close(self):
         try:
@@ -54,9 +54,13 @@ class GetMySql(object):
         return my_result
 
 if __name__ =='__main__':
-    sql = ReadConfig().get_trade("today_to_7day")
+    # sql = ReadConfig().get_trade("today_to_7day")
+    sql = "select group_concat(tt.source_order_id) from oms_ops.trade_order tt where date(tt.trade_time) = date_sub(CURDATE(), INTERVAL 0 DAY) union select group_concat(ff.source_order_id) from oms_order.oms_trade ff where date(ff.trade_time) = date_sub(CURDATE(), INTERVAL 0 DAY) and ff.match_count = 0 and ff.status != 'PREORDAIN';"
     db = GetMySql()
     db.connect()
     result = db.select(sql)
     db.close()
     print(result)
+    print(result[0])
+    print(result[1])
+    print(set(str(result[1])[2:-3].split(',')) - set(str(result[0])[2:-3].split(',')))
