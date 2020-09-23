@@ -51,14 +51,14 @@ class TestOrderCmp_xls(unittest.TestCase):
             if data == {}:
                 print("比对结果：系统订单数据没有遗漏")
             else:
-                print("比对结果：系统订单数据有遗漏\n")
+                print("比对结果：系统订单数据有遗漏\n\n")
                 for k in range(len(data)):
-                    print("原始订单为：" + tuple(data)[k])
+                    print("原始订单为：" + tuple(data)[k] + "\n")
         else:
             if result == ():
                 print("比对结果：没有生成重复的数据")
             else:
-                print("比对结果：有重复数据生成\n")
+                print("比对结果：有重复数据生成\n\n")
                 for k in range(len(result)):
                     print("原始订单为："+ result[k][0])
                     print("对应系统订单为:" + result[k][1] + "\n")
