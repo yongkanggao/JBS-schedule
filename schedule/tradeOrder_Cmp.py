@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time : 2020/9/18 13:48
 # @Author : Bruce.Gao
-# @FileName: schedule.py
+# @FileName: tradeOrder_Cmp.py
 # @Software: PyCharm
 
 import unittest
@@ -48,7 +48,7 @@ class TestOrderCmp_xls(unittest.TestCase):
         # print(result)
         if self.case_name.endswith("同步到系统订单数据"):
             data = set(str(result[1])[2:-3].split(',')) - set(str(result[0])[2:-3].split(','))
-            if data == {}:
+            if data == set():
                 print("比对结果：系统订单数据没有遗漏")
             else:
                 print("比对结果：系统订单数据有遗漏\n\n")

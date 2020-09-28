@@ -26,6 +26,10 @@ class ReadConfig(object):
         value = self.config.get('Delivery_Order',name)
         return value
 
+    def get_elasticsearch(self,name):
+        value = self.config.get('ES',name)
+        return value
+
 if __name__ == '__main__':#测试一下，我们读取配置文件的方法是否可用
     print('Trade_Order的sql：', ReadConfig().get_trade('today'))
 
