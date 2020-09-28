@@ -21,10 +21,10 @@ last_hour_time = int(round(int(time.time()))) * 1000 - 3600000  #当前时间前
 last_Twohour_time = last_hour_time - 3600000   #当前时间前两小时的时间戳
 
 logger = Log()
-Es_Cmp_xls = ReadExcel().get_xls('order.xlsx', 'Es_Cmp')
+TradeOder_Es_Cmp_xls = ReadExcel().get_xls('order.xlsx', 'TradeOder_Es_Cmp')
 
-@paramunittest.parametrized(*Es_Cmp_xls)
-class TestEs_Cmp_xls(unittest.TestCase):
+@paramunittest.parametrized(*TradeOder_Es_Cmp_xls)
+class TestTradeOder_Es_Cmp_xls(unittest.TestCase):
     """
     系统订单同步到ES
     """
@@ -32,9 +32,8 @@ class TestEs_Cmp_xls(unittest.TestCase):
         """
         set params
         :param case_name:
-        :param path
-        :param query
-        :param method
+        :param sql
+        :param es_search
         :return:
         """
         self.case_name = str(case_name)

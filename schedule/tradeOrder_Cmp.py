@@ -22,9 +22,7 @@ class TestOrderCmp_xls(unittest.TestCase):
         """
         set params
         :param case_name:
-        :param path
-        :param query
-        :param method
+        :param sql
         :return:
         """
         self.case_name = str(case_name)
