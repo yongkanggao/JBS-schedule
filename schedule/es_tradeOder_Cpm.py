@@ -196,6 +196,9 @@ class TestTradeOder_Es_Cmp_xls(unittest.TestCase):
                        if diff_vals != []:
                            print("ES数据同步不正确，原始订单为：" + dict1['sourceOrderId'])
                            print("数据不一致为:" + str(diff_vals))
+                       else:
+                           print("数据同步一致")
+                   self.assertEqual(diff_vals, [])
         else:
             print("没有新的订单\n")
 

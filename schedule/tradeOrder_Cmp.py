@@ -41,9 +41,6 @@ class TestOrderCmp_xls(unittest.TestCase):
         db = get_mysql.GetMySql()
         db.connect()
         result = db.select(self.sql)
-        # logger.info(str(self.case_name))
-        # self.assertEqual(result,())
-        # print(result)
         if self.case_name.endswith("同步到系统订单数据"):
             data = set(str(result[1])[2:-3].split(',')) - set(str(result[0])[2:-3].split(','))
             if data == set():
@@ -52,6 +49,7 @@ class TestOrderCmp_xls(unittest.TestCase):
                 print("比对结果：系统订单数据有遗漏\n\n")
                 for k in range(len(data)):
                     print("原始订单为：" + tuple(data)[k] + "\n")
+                self.assertEqual(data, set())
         else:
             if result == ():
                 print("比对结果：没有生成重复的数据")
@@ -60,6 +58,7 @@ class TestOrderCmp_xls(unittest.TestCase):
                 for k in range(len(result)):
                     print("原始订单为："+ result[k][0])
                     print("对应系统订单为:" + result[k][1] + "\n")
+                self.assertEqual(result, ())
 
 if __name__ == '__main__':
     unittest.main()
