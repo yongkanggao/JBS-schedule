@@ -190,15 +190,20 @@ class TestTradeOder_Es_Cmp_xls(unittest.TestCase):
                        dict2['codAmount'] = format(dict2['codAmount'], '.4f')
                        dict2['dapAmount'] = format(dict2['dapAmount'], '.4f')
                        del dict2['createTime']
-                       del dict2['updateTime']
+                       if 'updateTime' in dict2.keys():
+                           del dict2['updateTime']
                        diff = dict1.keys() & dict2
                        diff_vals = [(p, dict1[p], dict2[p]) for p in diff if dict1[p] != dict2[p]]   #原始订单号一致时，比较内容是否一致
-                       if diff_vals != []:
+                       try:
+                           self.assertEqual(diff_vals,[])
+                       except Exception as e:
                            print("ES数据同步不正确，原始订单为：" + dict1['sourceOrderId'])
                            print("数据不一致为:" + str(diff_vals))
-                       else:
-                           print("数据同步一致")
-                   self.assertEqual(diff_vals, [])
+                       # if diff_vals != []:
+                       #     print("ES数据同步不正确，原始订单为：" + dict1['sourceOrderId'])
+                       #     print("数据不一致为:" + str(diff_vals))
+                       # else:
+                       #     print("数据同步一致")
         else:
             print("没有新的订单\n")
 
